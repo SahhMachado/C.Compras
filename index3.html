@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Finalização de Compra</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #e5ddee;
+            margin: 0px;
+            font-weight: bold;
+        }
+
+        button{
+            background-color: #9178af;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+        }
+
+        input{
+            background-color: #b4a0cd;
+            border-radius: 10px;
+            border: none;
+        }
+
+        header{
+            background-image: url("img/header.jpg");
+            padding: 20px;
+        }
+
+        .log{
+            background-color: #9178af;
+        }
+        .nome{
+            display: inline-block;
+        }
+        .img{
+            display: table-cell;
+            float: left;
+            margin-left: 50px;
+        }
+        .text{
+            display: table-cell;
+            float: left;
+            padding-left: 20px;
+        }
+        .img2{
+            display: table-cell;
+            float: left;
+            padding-left: 90px;
+        }
+        .text2{
+            display: table-cell;
+            float: left;
+            padding-left: 50px;
+        }
+        .text3{
+            display: table-cell;
+            float: left;
+            margin-left: 50px;
+        }
+    </style>
+    <header>
+        <b><h4 id="login">Visitante</h4></b>
+        <br>
+        <div class="nome">
+            Nome: <input type="text" id="nm" placeholder="Insira seu nome">
+            <button onclick="mFuncao()" class="log">Logar</button><br><br>
+        </div>
+    </header>
+    <br><br>
+
+
+    <script>
+        function mFuncao(){
+            document.getElementById("login").innerHTML = document.getElementById("nm").value;
+        }
+
+        function sair(){
+        document.location.reload(true);
+        }
+
+        function addFuncao(qtd){
+            var prd1 = parseInt(document.getElementById("prd1").innerHTML);
+            var preco1 = parseFloat(document.getElementById("preco1").innerHTML);
+            if ('+1') {
+                document.getElementById("prd1").innerHTML = ++prd1;
+                document.getElementById("preco1").innerHTML = preco1 + 3.00;     
+            }
+        }
+
+        function remFuncao(qtd){
+            var prd1 = parseInt(document.getElementById("prd1").innerHTML);
+            var preco1 = parseFloat(document.getElementById("preco1").innerHTML);
+            if ('-1' && prd1 > 1) {
+                document.getElementById("prd1").innerHTML = --prd1;
+                document.getElementById("preco1").innerHTML = preco1 - 3.00;
+            }
+        }
+
+        function addFuncao2(qtd){
+            var prd2 = parseInt(document.getElementById("prd2").innerHTML);
+            var preco2 = parseFloat(document.getElementById("preco2").innerHTML);
+            if ('+1') {
+                document.getElementById("prd2").innerHTML = ++prd2;
+                document.getElementById("preco2").innerHTML = preco2 + 5.00;     
+            }
+        }
+
+        function adicionar(){
+            var para = document.createElement('div');
+            para.setAttribute("class", "img");
+            para.innerHTML = "Item removido";   
+            var elemento = document.getElementById("p1");
+            elemento.appendChild(para);
+        }
+
+        function adicionar2(){
+            var para = document.createElement('div');
+            para.setAttribute("class", "img2");
+            para.innerHTML = "Item removido";   
+            var elemento = document.getElementById("p2");
+            elemento.appendChild(para);
+        }
+
+        function remFuncao2(qtd){
+            var prd2 = parseInt(document.getElementById("prd2").innerHTML);
+            var preco2 = parseFloat(document.getElementById("preco2").innerHTML);
+            if ('-1' && prd2 > 1) {
+                document.getElementById("prd2").innerHTML = --prd2;
+                document.getElementById("preco2").innerHTML = preco2 - 5.00;
+            }
+        }
+
+        function remover1() {
+            var pai = document.getElementById("p1");
+            var filho1 = document.getElementById("f1");
+            pai.removeChild(filho1);
+        }
+
+        function remover2() {
+            var pai = document.getElementById("p2");
+            var filho2 = document.getElementById("f2");
+            pai.removeChild(filho2);
+        }
+    </script>
+
+<br>
+    <div id="p1">
+            <div id="f1">
+                <div class="img">
+                    <img src="img/cisBPX.jpg" alt="" width=200 height=180>
+                </div>
+                <div class="text">
+                    <h6>Caneta Esferográfica Cis BPX</h6>
+                    <h6>R$ 3,00</h6>
+                    <button onclick="addFuncao('+1')" class="prd1"><img src="img/cart-plus-fill.svg" alt=""></button>
+                    <h5 id="prd1">1</h5>
+                    <button onclick="remFuncao('-1')" class="prd1"><img src="img/cart-dash-fill.svg" alt=""></button>
+                </div>
+                <div class="text2">
+                    <h6>Valor Total(R$):</h6>
+                    <h6 id="preco1"> 3,00</h6>
+                </div>
+            </div>
+        </div>
+    <button onclick="remover1(); adicionar()" class="text3"><img src="img/excluir.svg" alt=""></button>
+
+    <div id="p2">
+        <div id="f2">
+            <div class="img2">
+                <img src="img/cristal.jpg" 
+                alt="" width=200 height=180>
+            </div>
+            <div class="text">
+                <h6>Caneta Cristal</h6>
+                <h6>R$ 5,00</h6>
+                <br>
+                <button onclick="addFuncao2('+1')" class="prd2"><img src="img/cart-plus-fill.svg" alt=""></button>
+                <h5 id="prd2">1</h5>
+                <button onclick="remFuncao2('-1')" class="prd2"><img src="img/cart-dash-fill.svg" alt=""></button>
+            </div>
+            <div class="text2">
+                <h6>Valor Total(R$):</h6>
+                <h6 id="preco2"> 5,00</h6>
+            </div>
+        </div>
+    </div>
+    <button onclick="remover2(); adicionar2()" class="text3"><img src="img/excluir.svg" alt=""></button>
+
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+
+    <center>
+        <button onclick="alert('Obrigado pela preferência!');  sair()">Finalizar Pedido</button>
+    </center>
+</body>
+</html>
